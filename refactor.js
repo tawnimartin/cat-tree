@@ -152,6 +152,19 @@ var spanishColor = function(colorName) {
 
 // Put your answer below -------------------------
 
+function spanishColor(colorName) {
+
+  var objColors = {}
+  objColors.rojo = "#ff0000";
+  objColors.blanco = "#ffffff";
+  objColors.azul = "#0000ff";
+  objColors.verde = "#00ff00";
+  objColors.negro = "#000000";
+
+  return objColors[colorName];
+
+}
+
 
 // -----------------------------------------------
 
