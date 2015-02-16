@@ -272,7 +272,7 @@ var twoPlusTwo = addNumbers(2,2);
 // Put your answer below -------------------------
 
 var addNumbers = function(numberA, numberB) {
-  console.log(numberA + numberB);
+  //console.log(numberA + numberB);
   return numberA + numberB;
 };
 
@@ -303,6 +303,19 @@ var accelerate = function(amount) {
 
 // Put your answer below -------------------------
 
+var speed = 0;
+
+var accelerate = function(amount) {
+  if (amount === undefined) {
+      amount = 0;
+  } 
+
+  speed += amount;
+};
+
+//It's returning Not A Number because the parameter is undefined.
+//Whenever you attempt to perform a calculation on anything that is not a number
+//such as a string or an undefined variable, you get NaN.
 
 // -----------------------------------------------
 
