@@ -87,6 +87,12 @@ console.log("The letter is", letter);
 
 // Put your answer below -------------------------
 
+//Answer: [c]
+//z first, because JS is asynchronous... as it's waiting for the setTimeout,
+//it continutes on, and changes letter to z and console.logs the letter as z.
+//then when the setTimeout finishes, that function runs, and changes 
+//the letter to y and console logs y.  x never gets logged to the console, because
+//it's sitting in the variable and never gets used... gets changed to z first, then y.
 
 // -----------------------------------------------
 
