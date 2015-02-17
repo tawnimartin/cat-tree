@@ -41,35 +41,30 @@ _.each(data, function (item) {
 
       $innerLi = $("<li />");
 
-
       $innerLi.append("<span>" + innerItem.name + "</span>");
 
       $innerUl.append($innerLi);
 
+        //a level
+        if(innerItem.children) {
 
+        newInnerData = innerItem.children;
 
-          if(innerItem.children) {
+        //console.log("newInnerData: ", newInnerData);
 
-          newInnerData = innerItem.children;
+        $newinnerUl = $("<ul />");
 
-          //console.log("newInnerData: ", newInnerData);
-
-          $newinnerUl = $("<ul />");
-
-          _.each(newInnerData, function (newinnerItem){
+        _.each(newInnerData, function (newinnerItem){
 
            //console.log("newinnerItem: ", newinnerItem);
 
-           $newinnerLi = $("<li />");
+          $newinnerLi = $("<li />");
 
-           $newinnerLi.append("<span>" + newinnerItem.name + "</span>");
+          $newinnerLi.append("<span>" + newinnerItem.name + "</span>");
 
-           $newinnerUl.append($newinnerLi);
+          $newinnerUl.append($newinnerLi);
 
-
-
-
-
+            //a level
             if(newinnerItem.children) {
 
             moreInnerData = newinnerItem.children;
@@ -78,15 +73,13 @@ _.each(data, function (item) {
 
             _.each(moreInnerData, function (anotherinnerItem){
 
-             $anotherinnerLi = $("<li />");
+               $anotherinnerLi = $("<li />");
 
-             $anotherinnerLi.append("<span>" + anotherinnerItem.name + "</span>");
+               $anotherinnerLi.append("<span>" + anotherinnerItem.name + "</span>");
 
-             $anotherinnerUl.append($anotherinnerLi);
+               $anotherinnerUl.append($anotherinnerLi);
 
-
-
-
+                //a level
                 if(anotherinnerItem.children) {
 
                 lastInnerData = anotherinnerItem.children;
@@ -95,11 +88,11 @@ _.each(data, function (item) {
 
                 _.each(lastInnerData, function (lastinnerItem){
 
-                 $lastinnerLi = $("<li />");
+                   $lastinnerLi = $("<li />");
 
-                 $lastinnerLi.append("<span>" + lastinnerItem.name + "</span>");
+                   $lastinnerLi.append("<span>" + lastinnerItem.name + "</span>");
 
-                 $lastinnerUl.append($lastinnerLi);
+                   $lastinnerUl.append($lastinnerLi);
 
                 });
 
@@ -108,30 +101,19 @@ _.each(data, function (item) {
               }
 
 
-
-
-
-
             });
 
             $newinnerLi.append($anotherinnerUl);
 
           }
 
+        });
 
+        $innerLi.append($newinnerUl);
 
+      }
 
-
-
-          });
-
-          $innerLi.append($newinnerUl);
-
-        }
-
-
-
-  });
+    });
 
   //console.log("inner li", $innerLi[0]);
 
