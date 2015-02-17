@@ -58,7 +58,7 @@ _.each(data, function (item) {
 
           _.each(newInnerData, function (newinnerItem){
 
-           //console.log("innerItem: ", newinnerItem);
+           //console.log("newinnerItem: ", newinnerItem);
 
            $newinnerLi = $("<li />");
 
@@ -66,11 +66,41 @@ _.each(data, function (item) {
 
            $newinnerUl.append($newinnerLi);
 
+
+
+
+
+            if(newinnerItem.children) {
+
+            moreInnerData = newinnerItem.children;
+
+            $anotherinnerUl = $("<ul />");
+
+            _.each(moreInnerData, function (anotherinnerItem){
+
+             $anotherinnerLi = $("<li />");
+
+             $anotherinnerLi.append("<span>" + anotherinnerItem.name + "</span>");
+
+             $anotherinnerUl.append($anotherinnerLi);
+
+            });
+
+            $newinnerLi.append($anotherinnerUl);
+
+          }
+
+
+
+
+
+
           });
 
           $innerLi.append($newinnerUl);
 
         }
+
 
 
   });
