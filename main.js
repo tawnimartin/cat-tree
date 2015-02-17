@@ -39,15 +39,43 @@ _.each(data, function (item) {
      
     _.each(innerData, function  (innerItem){
 
-    $innerLi = $("<li />");
+      $innerLi = $("<li />");
 
-    $innerLi.append("<span>" + innerItem.name + "</span>");
 
-    $innerUl.append($innerLi);
+      $innerLi.append("<span>" + innerItem.name + "</span>");
+
+      $innerUl.append($innerLi);
+
+
+
+          if(innerItem.children) {
+
+          newInnerData = innerItem.children;
+
+          //console.log("newInnerData: ", newInnerData);
+
+          $newinnerUl = $("<ul />");
+
+          _.each(newInnerData, function (newinnerItem){
+
+           //console.log("innerItem: ", newinnerItem);
+
+           $newinnerLi = $("<li />");
+
+           $newinnerLi.append("<span>" + newinnerItem.name + "</span>");
+
+           $newinnerUl.append($newinnerLi);
+
+          });
+
+          $innerLi.append($newinnerUl);
+
+        }
+
 
   });
 
-  console.log("inner li", $innerLi[0]);
+  //console.log("inner li", $innerLi[0]);
 
   $rootLi.append($innerUl);
 
