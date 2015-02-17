@@ -84,6 +84,34 @@ _.each(data, function (item) {
 
              $anotherinnerUl.append($anotherinnerLi);
 
+
+
+
+                if(anotherinnerItem.children) {
+
+                lastInnerData = anotherinnerItem.children;
+
+                $lastinnerUl = $("<ul />");
+
+                _.each(lastInnerData, function (lastinnerItem){
+
+                 $lastinnerLi = $("<li />");
+
+                 $lastinnerLi.append("<span>" + lastinnerItem.name + "</span>");
+
+                 $lastinnerUl.append($lastinnerLi);
+
+                });
+
+                $anotherinnerLi.append($lastinnerUl);
+
+              }
+
+
+
+
+
+
             });
 
             $newinnerLi.append($anotherinnerUl);
